@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Umbrella</string>
+    <string name="zip_code_prompt">Enter 5 digit zip code:</string>
+    <string name="temperature_type">Celsius or Fahrenheit</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="placeholder">placeholder</string>
+    <string name="zip">Zip</string>
+    <string name="units">Units</string>
+    <string name="submit">Submit</string>
+    <string-array name="unit_spinner">
+        <item>Fahrenheit</item>
+        <item>Celsius</item>
+    </string-array>
+</resources>
