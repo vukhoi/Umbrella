@@ -40,6 +40,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         String date = dateList.get(position);
         holder.tvDate.setText(date);
         for(LinearLayout row: currentDate){
+            if (row.getParent() != null) {
+                ((ViewGroup) row.getParent()).removeView(row);
+            }
             holder.llWeather.addView(row);
         }
     }

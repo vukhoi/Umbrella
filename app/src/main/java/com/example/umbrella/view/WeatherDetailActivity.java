@@ -71,7 +71,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     public void editCurrentWeather(String locale, String temperature, String status){
         Log.d(TAG, "editCurrentWeather");
         boolean isWarm = false;
-        double temperatureDouble = Double.parseDouble(temperature);
+        double temperatureDouble = Double.parseDouble(temperature.substring(0, temperature.length()-1));
         tvLocale.setText(locale);
         tvTemperature.setText(temperature);
         tvStatus.setText(status);

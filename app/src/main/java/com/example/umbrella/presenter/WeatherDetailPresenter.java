@@ -53,7 +53,7 @@ public class WeatherDetailPresenter {
 
                         String city = weatherData.getCity().getName();
                         String country = weatherData.getCity().getCountry();
-                        String temperature = dataList.get(0).getWeatherMain().getTemp().toString();
+                        String temperature = dataList.get(0).getWeatherMain().getTemp().toString() + "°";
                         String status = dataList.get(0).getWeather().get(0).getMain();
 
                         ((WeatherDetailActivity)context).editCurrentWeather(city + ", " + country, temperature, status);
@@ -114,7 +114,7 @@ public class WeatherDetailPresenter {
             thisDay = day.get(i);
             time = thisDay.getDtTxt().split("\\s+")[1];
             iconLink = iconLinkMain + thisDay.getWeather().get(0).getIcon() + ".png";
-            temperature = thisDay.getWeatherMain().getTemp().toString();
+            temperature = thisDay.getWeatherMain().getTemp().toString() + "°";
             fillWeatherEntry(currentRow, index, time.substring(0,time.length()-3), iconLink, temperature);
         }
 
