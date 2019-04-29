@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.umbrella.R;
@@ -15,7 +14,7 @@ public class UnitSelectorInputDialog extends Dialog {
     Spinner spinnerUnit;
     Button btnSubmit;
 
-    public UnitSelectorInputDialog(@NonNull Context context) {
+    UnitSelectorInputDialog(@NonNull Context context) {
         super(context);
         this.setCanceledOnTouchOutside(true);
     }

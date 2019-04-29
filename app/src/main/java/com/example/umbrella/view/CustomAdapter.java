@@ -1,7 +1,5 @@
 package com.example.umbrella.view;
 
-import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +12,10 @@ import com.example.umbrella.R;
 import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
-    private final Context context;
     private List<List<LinearLayout>> weatherRowList;
     private List<String> dateList;
 
-    public CustomAdapter(Context context, List<List<LinearLayout>> weatherRowList, List<String> dateList){
-        this.context = context;
+    CustomAdapter(List<List<LinearLayout>> weatherRowList, List<String> dateList){
         this.weatherRowList = weatherRowList;
         this.dateList = dateList;
     }
@@ -53,11 +49,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     }
 
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder{
+    class CustomViewHolder extends RecyclerView.ViewHolder{
         LinearLayout llWeather;
         TextView tvDate;
 
-        public CustomViewHolder(View itemView) {
+        CustomViewHolder(View itemView) {
             super(itemView);
             llWeather = itemView.findViewById(R.id.ll_weather);
             tvDate = itemView.findViewById(R.id.tv_date);

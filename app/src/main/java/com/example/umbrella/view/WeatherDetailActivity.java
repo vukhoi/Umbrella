@@ -1,30 +1,22 @@
 package com.example.umbrella.view;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.umbrella.R;
 import com.example.umbrella.Util;
-import com.example.umbrella.model.Weather;
-import com.example.umbrella.model.WeatherData;
 import com.example.umbrella.presenter.WeatherDetailPresenter;
 
-import org.w3c.dom.Text;
+
 
 import java.util.List;
 
@@ -94,7 +86,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
     public void setUpRecyclerView(List<List<LinearLayout>> hourlyTemperature, List<String> dateList){
         Log.d("recyclerview", dateList.toString());
-        CustomAdapter customAdapter = new CustomAdapter(this, hourlyTemperature, dateList);
+        CustomAdapter customAdapter = new CustomAdapter(hourlyTemperature, dateList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(linearLayoutManager);

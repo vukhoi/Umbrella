@@ -28,8 +28,8 @@ import io.reactivex.schedulers.Schedulers;
 
 public class WeatherDetailPresenter {
     private final String TAG = this.getClass().getSimpleName();
-    RetrofitHelper retrofitHelper = new RetrofitHelper();
-    Context context;
+    private RetrofitHelper retrofitHelper = new RetrofitHelper();
+    private Context context;
 
     public WeatherDetailPresenter(Context context){
         this.context = context;
@@ -76,13 +76,8 @@ public class WeatherDetailPresenter {
                     @Override
                     public void onError(Throwable e) {
                         Log.d(TAG, "onError");
-                        try {
-                            e.printStackTrace();
-                        }
-                        catch (retrofit2.adapter.rxjava2.HttpException httpException){
-                            ((WeatherDetailActivity)context).editCurrentWeather("City not found ", "", "");
-                        }
-
+                        e.printStackTrace();
+                        ((WeatherDetailActivity)context).editCurrentWeather("City not found ", "", "");
                     }
 
                     @Override
@@ -99,7 +94,7 @@ public class WeatherDetailPresenter {
         List<LinearLayout> weatherRowList = new ArrayList<LinearLayout>();
         String time, iconLink, temperature = null;
         String iconLinkMain = "http://openweathermap.org/img/w/";
-        HourlyWeatherData thisDay = null;
+        HourlyWeatherData thisDay;
         int index;
         LinearLayout currentRow = null;
 
@@ -128,11 +123,6 @@ public class WeatherDetailPresenter {
         LinearLayout lastRow = weatherRowList.get(weatherRowList.size()-1);
         for(int i = numEntryLastRow; i < Util.NUM_ENTRY_PER_ROW; i++){
             switch(i){
-                case 0:
-                    lastRow.findViewById(R.id.tv_time0).setVisibility(View.INVISIBLE);
-                    lastRow.findViewById(R.id.ic0).setVisibility(View.INVISIBLE);
-                    lastRow.findViewById(R.id.tv_temperature0).setVisibility(View.INVISIBLE);
-                    break;
                 case 1:
                     lastRow.findViewById(R.id.tv_time1).setVisibility(View.INVISIBLE);
                     lastRow.findViewById(R.id.ic1).setVisibility(View.INVISIBLE);

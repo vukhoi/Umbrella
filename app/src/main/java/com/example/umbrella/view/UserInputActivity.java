@@ -126,7 +126,7 @@ public class UserInputActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Log.d("INTERNET", "request granted : " + (PackageManager.PERMISSION_GRANTED == grantResults[0]));
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             // restart activity
             Intent intent = getIntent();
             finish();
