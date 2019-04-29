@@ -2,8 +2,6 @@ package com.example.umbrella.presenter;
 
 
 import android.content.Context;
-import android.net.LinkAddress;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +19,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -66,7 +63,6 @@ public class WeatherDetailPresenter {
                         List<String> dateList = new ArrayList<>();
                         int count = 0;
                         for(List<HourlyWeatherData> day: dailyWeather){
-                            CardView cardView = null;
                             hourlyTemperature.add(setUpHourlyWeather(day));
                             if (count == 0) dateList.add("Today");
                             else if (count == 1) dateList.add("Tomorrow");
@@ -80,7 +76,13 @@ public class WeatherDetailPresenter {
                     @Override
                     public void onError(Throwable e) {
                         Log.d(TAG, "onError");
-                        e.printStackTrace();
+                        try {
+                            e.printStackTrace();
+                        }
+                        catch (retrofit2.adapter.rxjava2.HttpException httpException){
+                            ((WeatherDetailActivity)context).editCurrentWeather("City not found ", "", "");
+                        }
+
                     }
 
                     @Override
@@ -113,7 +115,7 @@ public class WeatherDetailPresenter {
             time = thisDay.getDtTxt().split("\\s+")[1];
             iconLink = iconLinkMain + thisDay.getWeather().get(0).getIcon() + ".png";
             temperature = thisDay.getWeatherMain().getTemp().toString();
-            fillWeatherEntry(currentRow, index, time, iconLink, temperature);
+            fillWeatherEntry(currentRow, index, time.substring(0,time.length()-3), iconLink, temperature);
         }
 
 

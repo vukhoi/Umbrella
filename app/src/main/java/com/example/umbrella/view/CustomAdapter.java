@@ -27,7 +27,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        CardView cardView = (CardView) layoutInflater.inflate(R.layout.daily_weather_layout, null);
+        LinearLayout cardView = (LinearLayout) layoutInflater.inflate(R.layout.daily_weather_layout, null);
         if (cardView.getParent() != null) {
             ((ViewGroup) cardView.getParent()).removeView(cardView);
         }
