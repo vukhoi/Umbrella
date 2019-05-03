@@ -26,7 +26,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class WeatherDetailPresenter {
+public class WeatherDetailPresenter implements WeatherDetailPresenterInterface{
     private final String TAG = this.getClass().getSimpleName();
     private RetrofitHelper retrofitHelper = new RetrofitHelper();
     private Context context;

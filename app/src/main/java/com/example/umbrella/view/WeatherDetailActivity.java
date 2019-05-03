@@ -15,14 +15,14 @@ import android.widget.TextView;
 import com.example.umbrella.R;
 import com.example.umbrella.Util;
 import com.example.umbrella.presenter.WeatherDetailPresenter;
-
+import com.example.umbrella.presenter.WeatherDetailPresenterInterface;
 
 
 import java.util.List;
 
-public class WeatherDetailActivity extends AppCompatActivity {
+public class WeatherDetailActivity extends AppCompatActivity implements WeatherDetailActivityInterface{
     private final String TAG = this.getClass().getSimpleName();
-    WeatherDetailPresenter presenter;
+    WeatherDetailPresenterInterface presenter;
     TextView tvLocale, tvTemperature, tvStatus;
     ImageView ivSettiing;
     RecyclerView recyclerView;

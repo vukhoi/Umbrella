@@ -25,7 +25,7 @@ import static com.example.umbrella.Util.verifyZip;
 
 
 
-public class UserInputActivity extends AppCompatActivity {
+public class UserInputActivity extends AppCompatActivity implements UserInputActivityInterface{
     LinearLayout llZipBtn, llUnitBtn;
     TextView tvZip, tvUnit;
     ZipInputDialog zipInputDialog;
@@ -123,6 +123,7 @@ public class UserInputActivity extends AppCompatActivity {
         Util.INTERNET_PERMISSION_REQUESTCODE = random.nextInt(random.nextInt(1000));
     }
 
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Log.d("INTERNET", "request granted : " + (PackageManager.PERMISSION_GRANTED == grantResults[0]));
